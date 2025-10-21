@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Camera Videos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #1a1a1a;
+            color: white;
+        }
+        .video-container {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #333;
+            border-radius: 8px;
+        }
+        video {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            background: black;
+        }
+        .status {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .success { background: #2d5a2d; }
+        .error { background: #5a2d2d; }
+        .info { background: #2d4a5a; }
+    </style>
+</head>
+<body>
+    <h1>🎥 Camera Video Debug Tool</h1>
+    <p>This page helps you test if your video files are accessible.</p>
+
+    <div class="video-container">
+        <h3>📹 Camera 1: 123.mp4</h3>
+        <video controls preload="metadata" id="video1">
+            <source src="/videos/123.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="status info" id="status1">Loading...</div>
+    </div>
+
+    <div class="video-container">
+        <h3>📹 Camera 2: WhatsApp Video 1</h3>
+        <video controls preload="metadata" id="video2">
+            <source src="/videos/whatsapp-video-1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="status info" id="status2">Loading...</div>
+    </div>
+
+    <div class="video-container">
+        <h3>📹 Camera 3: WhatsApp Video 2</h3>
+        <video controls preload="metadata" id="video3">
+            <source src="/videos/whatsapp-video-2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="status info" id="status3">Loading...</div>
+    </div>
+
+    <div class="video-container">
+        <h3>📋 Instructions</h3>
+        <ol>
+            <li><strong>Create folder:</strong> <code>public/videos/</code></li>
+            <li><strong>Copy your files:</strong>
+                <ul>
+                    <li><code>123.mp4</code> → <code>public/videos/123.mp4</code></li>
+                    <li><code>WhatsApp Video 2025-10-13 at 8.04.43 PM.mp4</code> → <code>public/videos/whatsapp-video-1.mp4</code></li>
+                    <li><code>WhatsApp Video 2025-10-13 at 20.04.43_d2fc0054.mp4</code> → <code>public/videos/whatsapp-video-2.mp4</code></li>
+                </ul>
+            </li>
+            <li><strong>Refresh this page</strong> to test the videos</li>
+        </ol>
+    </div>
+
+    <script>
+        // Test each video
+        const videos = [
+            { id: 'video1', statusId: 'status1', name: '123.mp4' },
+            { id: 'video2', statusId: 'status2', name: 'whatsapp-video-1.mp4' },
+            { id: 'video3', statusId: 'status3', name: 'whatsapp-video-2.mp4' }
+        ];
+
+        videos.forEach(({ id, statusId, name }) => {
+            const video = document.getElementById(id);
+            const status = document.getElementById(statusId);
+
+            video.addEventListener('loadedmetadata', () => {
+                status.textContent = `✅ ${name} loaded successfully (${Math.round(video.duration)}s duration)`;
+                status.className = 'status success';
+            });
+
+            video.addEventListener('error', (e) => {
+                status.textContent = `❌ ${name} failed to load - File not found or invalid format`;
+                status.className = 'status error';
+                console.error(`Video error for ${name}:`, e);
+            });
+
+            video.addEventListener('loadstart', () => {
+                status.textContent = `🔄 Loading ${name}...`;
+                status.className = 'status info';
+            });
+        });
+
+        // Log current location for debugging
+        console.log('Current page URL:', window.location.href);
+        console.log('Expected video paths:');
+        console.log('- /videos/123.mp4');
+        console.log('- /videos/whatsapp-video-1.mp4');
+        console.log('- /videos/whatsapp-video-2.mp4');
+    </script>
+</body>
+</html>
