@@ -1,73 +1,114 @@
-# Welcome to your Lovable project
+🚗 SpotWise Assist – Smart Parking Assistant System
 
-## Project info
+SpotWise Assist is a smart parking assistance system designed to monitor and display real-time parking spot availability on a per-spot basis. The system combines sensor-based (or vision-based) data collection with a centralized backend and a web interface to help users quickly identify free parking spaces and improve parking efficiency.
 
-**URL**: https://lovable.dev/projects/edf38651-f6c0-4212-9220-7b65e8ae5228
+🔍 Problem Statement
 
-## How can I edit this code?
+Urban parking spaces are limited and inefficiently utilized due to the lack of real-time visibility into parking availability. Drivers waste time searching for parking, increasing congestion, fuel consumption, and frustration.
 
-There are several ways of editing your application.
+💡 Solution Overview
 
-**Use Lovable**
+SpotWise Assist provides a spot-level parking monitoring system that:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/edf38651-f6c0-4212-9220-7b65e8ae5228) and start prompting.
+Detects whether each parking space is occupied or free
 
-Changes made via Lovable will be committed automatically to this repo.
+Sends this data to a central backend server
 
-**Use your preferred IDE**
+Displays live parking status on a web-based dashboard
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Enables users or administrators to monitor parking availability in real time
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+✨ Key Features
 
-Follow these steps:
+🅿️ Per-Spot Occupancy Detection
+Each parking space is monitored individually for accurate availability tracking.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+🔄 Real-Time Status Updates
+Parking spot data is continuously updated and reflected on the dashboard.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+🌐 Web-Based Dashboard
+User-friendly interface showing available and occupied spots visually.
 
-# Step 3: Install the necessary dependencies.
-npm i
+📡 Backend API Integration
+Centralized backend handles incoming data, processing, and storage.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+📊 Scalable Architecture
+Designed to support multiple parking areas and expansion.
 
-**Edit a file directly in GitHub**
+🔐 Simple & Lightweight Design
+Minimal setup with fast response times.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+🏗️ System Architecture
 
-**Use GitHub Codespaces**
+Data Source (Sensors / Camera / Input Module)
+Detects vehicle presence in each parking spot.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Backend Server
 
-## What technologies are used for this project?
+Receives occupancy data
 
-This project is built with:
+Updates spot status
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Exposes APIs for frontend
 
-## How can I deploy this project?
+Frontend Interface
 
-Simply open [Lovable](https://lovable.dev/projects/edf38651-f6c0-4212-9220-7b65e8ae5228) and click on Share -> Publish.
+Fetches spot status
 
-## Can I connect a custom domain to my Lovable project?
+Displays parking layout with availability
 
-Yes, you can!
+Sensors / Camera
+      |
+      v
+Backend Server (API)
+      |
+      v
+Web Dashboard
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+⚙️ Tech Stack
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Frontend: HTML, CSS, JavaScript
+
+Backend: Python (Flask / FastAPI) or Node.js
+
+Database: Optional (SQLite / PostgreSQL / JSON storage)
+
+Computer Vision / Sensors: OpenCV or IoT sensors (optional)
+
+🚀 How It Works
+
+Parking spot data is captured by sensors or vision module.
+
+Data is sent to backend server via API.
+
+Backend processes and stores spot status.
+
+Frontend fetches updated data and displays it.
+
+📌 Use Cases
+
+Smart parking lots
+
+Shopping malls
+
+Corporate campuses
+
+Universities
+
+Smart city deployments
+
+📈 Future Enhancements
+
+Mobile app integration
+
+Navigation to nearest free spot
+
+License plate recognition
+
+Payment and reservation system
+
+Analytics dashboard
+
+🧑‍💻 Contributors
+
+Amaresh Saravanan – Developer
