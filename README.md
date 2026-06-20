@@ -1,4 +1,4 @@
-# 🚗 SpotWise Assist – Smart Parking Assistant System
+ # 🚗 SpotWise Assist – Smart Parking Assistant System
 
 SpotWise Assist is a smart parking assistance system designed to monitor and display real-time parking spot availability on a per-spot basis. The system combines sensor-based (or vision-based) data collection with a centralized backend and a web interface to help users quickly identify free parking spaces and improve parking efficiency.
 
